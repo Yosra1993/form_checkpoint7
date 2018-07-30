@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form Validation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <center> <img src="logo-form.png"></center>
+<form class="form" action="#">
+      <h3 class="name">Name :</h3>
+      <input type="text" placeholder="Your name.." id="name">
+      <h3>Adress: </h3>
+      <input type="text" placeholder="Your adress.." id="adress">
+      <h3>E-mail Adress:</h3>
+      <input type="text" placeholder="Your e-mail.." id="email">
+      <h3>Password:</h3>
+      <input type="password" id="password">
+      <h3>Comments:</h3>
+      <textarea type="text" placeholder="Write something.." id="comment"></textarea>
+        <div class="button">
+             <button onclick="alert_error()">Send</button>
+             <button type="reset">Reset</button>
+        </div>
+    
+    </form>
+     </body>
+<script>
+
+function alert_error()
+{
+    var name=document.getElementById("name").value;
+    var adress=document.getElementById("adress").value;
+    var email=document.getElementById("email").value;
+    var password=document.getElementById("password").value;
+    var comment=document.getElementById("comment").value;
+    var regex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+    var re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+
+    if ((name=="") || (adress=="") || (email=="") || (password=="") || (comment==""))
+     {
+        alert("All blanks must be filled!!!")
+     }
+
+     else if (!regex.test(email))
+    {
+        alert(email + " is not valid :( ")
+        
+    }
+    
+    else if(!re.test(password))
+    {
+        
+        alert("The password has less than 8 characters or must be a combination of charatacters , numbers and at least a capital letter!!!")
+     }
+
+    else
+    alert("Saved :)")
+
+}
+
+</script>
+
+</html>
